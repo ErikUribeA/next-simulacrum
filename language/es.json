@@ -1,0 +1,18 @@
+{
+    "Home": "Inicio",
+    "grettings": "Hola, Bienvenido a mi aplicacion",
+    "login": "Ingresar con Google",
+    "session": "Logueado como",
+    "logout": "Cerrar session",
+    "welcome": "Bienvenido",
+    "protect": "Debes loguearte para ingresar",
+    "title": "Tienda en linea",
+    "productName": "Nombre del produco",
+    "price": "Precio",
+    "add": "Añadir al carrito",
+    "language":{
+        "select": "Selecciona un idioma",
+        "OptionEs": "Español",
+        "OptionEn": "Ingles"
+    }
+}

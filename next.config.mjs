@@ -1,4 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import createNextIntlPlugin from 'next-intl/plugin';
 
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const intl = createNextIntlPlugin()
+const nextConfig = {
+    images: {
+        domains: ['lh3.googleusercontent.com', 'fakestoreapi.com'], // Añade el dominio permitido
+
+    },
+};
+
+export default intl(nextConfig);

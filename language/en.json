@@ -1,0 +1,17 @@
+{
+    "Home": "Home",
+    "grettings": "Hi, Welcome to my aplication",
+    "login": "Log in with google",
+    "session": "Logged in as",
+    "logout": "Log out",
+    "welcome": "Welcome",
+    "protect": "You must log in to enter",
+    "title": "Online Shop",
+    "price": "Price",
+    "add": "Add to Cart",
+    "language":{
+        "select": "Select language",
+        "OptionEs": "Spanish",
+        "OptionEn": "English"
+    }
+}
