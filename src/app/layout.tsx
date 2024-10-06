@@ -5,6 +5,8 @@ import MainNavBar from "./components/navbar/MainNavbar";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { ReduxProviders } from "@/app/reduxProviders";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,6 +32,7 @@ export default async function RootLayout({
             </Providers>
           </ReduxProviders>
         </NextIntlClientProvider>
+        <ToastContainer />
       </body>
     </html>
   );

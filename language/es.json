@@ -19,5 +19,7 @@
         "cart": "Carrito",
         "shoppingCart": "Carrito de compras",
         "remove": "Eliminar"
-    }
+    },
+    "addedToCart" : "El prodecto fue añadido exitosamente",
+    "loginRequired" : "Debes loguearte para poder comprar"
 }

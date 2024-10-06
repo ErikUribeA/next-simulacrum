@@ -18,5 +18,7 @@
         "cart": "Cart",
         "shoppingCart": "Shopping Cart",
         "remove": "Remove"
-    }
+    },
+    "addedToCart" : "The product was added successfully",
+    "loginRequired" : "You must log in to shopping"
 }

@@ -7,6 +7,9 @@ import { ShoppingCart, Heart } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
 import { toggleFavorite } from '@/lib/redux/slices/favoriteSlice';
 import { addToCart } from '@/lib/redux/slices/cartSlice';
+import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
+
 
 interface Product {
     id: number;
@@ -28,6 +31,8 @@ const CharactersCards: React.FC = () => {
     const translate = useTranslations('');
     const dispatch = useAppDispatch();
     const favorites = useAppSelector(state => state.favorites);
+    const { data: session } = useSession();
+
 
     useEffect(() => {
         async function fetchingData() {
@@ -49,7 +54,12 @@ const CharactersCards: React.FC = () => {
     }, []);
 
     const handleAddToCart = (product: Product) => {
-        dispatch(addToCart(product));
+        if (session) {
+            dispatch(addToCart(product));
+            toast.success(translate("addedToCart"));
+        } else {
+            toast.warn(translate("loginRequired"));
+        }
     };
 
     const handleToggleFavorite = (id: number) => {
