@@ -3,6 +3,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import cartReducer from './slices/cartSlice';
 import { createWrapper } from 'next-redux-wrapper';
+import  favoritesReducer  from './slices/favoriteSlice'
 
 const persistConfig = {
   key: 'root',
@@ -10,13 +11,22 @@ const persistConfig = {
   whitelist: ['items'], // Solo persistimos los items del carrito
 };
 
+const favoritesPersistConfig = {
+  key: 'favorites',
+  storage,
+};
+
 const persistedReducer = persistReducer(persistConfig, cartReducer);
+const persistedFavoritesReducer = persistReducer(favoritesPersistConfig, favoritesReducer);
+
 
 export const makeStore = () =>
   configureStore({
     reducer: {
       cart: persistedReducer,
+      favorites: persistedFavoritesReducer,
     },
+
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: false,

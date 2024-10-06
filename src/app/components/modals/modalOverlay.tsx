@@ -5,6 +5,7 @@ import { removeFromCart, updateQuantity } from '@/lib/redux/slices/cartSlice';
 import { AppDispatch, RootState } from '@/lib/redux/store';
 import { ShoppingCart } from 'lucide-react';
 import styled from 'styled-components';
+import { useTranslations } from 'next-intl';
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -109,19 +110,20 @@ const ShoppingCartModal: React.FC = () => {
   const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
   const toggleModal = () => setIsOpen(!isOpen);
+  const translate = useTranslations("shoppingCart")
 
   return (
     <>
       <CartButton onClick={toggleModal}>
         <ShoppingCart size={18} style={{ marginRight: '8px' }} />
-        Cart ({items.length})
+        {translate("cart")} ({items.length})
       </CartButton>
 
       {isOpen && (
         <ModalOverlay>
           <ModalContent>
             <ModalHeader>
-              <h2>Shopping Cart</h2>
+              <h2> {translate("shoppingCart")} </h2>
               <CloseButton onClick={toggleModal}>&times;</CloseButton>
             </ModalHeader>
 
@@ -133,7 +135,7 @@ const ShoppingCartModal: React.FC = () => {
                   <CartItem key={item.id}>
                     <ItemInfo>
                       <ItemTitle>{item.title}</ItemTitle>
-                      <ItemPrice>${item.price.toFixed(2)} x {item.quantity}</ItemPrice>
+                      <ItemPrice>${item.price} x {item.quantity}</ItemPrice>
                     </ItemInfo>
                     <div>
                       <QuantityInput
@@ -148,7 +150,7 @@ const ShoppingCartModal: React.FC = () => {
                         min="1"
                       />
                       <RemoveButton onClick={() => dispatch(removeFromCart(item.id))}>
-                        Remove
+                        {translate("remove")}
                       </RemoveButton>
                     </div>
                   </CartItem>
@@ -157,7 +159,7 @@ const ShoppingCartModal: React.FC = () => {
             )}
 
             <TotalPrice>
-              Total: ${totalPrice.toFixed(2)}
+              Total: ${totalPrice}
             </TotalPrice>
           </ModalContent>
         </ModalOverlay>

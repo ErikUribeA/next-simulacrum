@@ -14,5 +14,10 @@
         "select": "Selecciona un idioma",
         "OptionEs": "Español",
         "OptionEn": "Ingles"
+    },
+    "shoppingCart":{
+        "cart": "Carrito",
+        "shoppingCart": "Carrito de compras",
+        "remove": "Eliminar"
     }
 }
