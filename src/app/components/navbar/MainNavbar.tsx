@@ -8,16 +8,22 @@ import Image from "next/image"
 import { useSession } from "next-auth/react";
 import ShoppingCartModal from "../modals/modalOverlay";
 
-
-
 const NavbarContainer = styled.nav`
   background: linear-gradient(90deg, #00c6ff, #0072ff);
   padding: 15px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  
+  gap: 0px;
+
+  @media screen and (max-width: 600px ) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+      };
 `;
 
 const UL = styled.ul`
@@ -28,6 +34,12 @@ const UL = styled.ul`
   margin: 0;
   width: 40%;
   align-items: center;
+
+  @media screen and (max-width: 600px ) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+      };
 `;
 
 const NavItem = styled.li`
